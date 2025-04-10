@@ -1,0 +1,20 @@
+{
+    "name": "brenoleite8/html2image",
+    "description": "Adaptação da ferramenta html2canvas (https://html2canvas.hertzen.com) para utilização no Adianti Framework e MadBuilder.",
+    "type": "library",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+        "Brenoleite8\\pivottable\\": "src/"
+        }
+    },
+    "authors": [
+        {
+        "name": "Breno Leite",
+        "email": "brenoleite8@outlook.com"
+        }
+    ],
+    "license": "MIT"
+}
