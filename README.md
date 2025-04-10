@@ -1,5 +1,6 @@
 # Html2Image
 Adaptação da ferramenta html2canvas (https://html2canvas.hertzen.com) para utilização no Adianti Framework e MadBuilder.
+#### Obs: Está sendo utilizada a versão 1.4.1 do componente html2canvas.js.
 
 # Instalação
 ### Mad Buider
