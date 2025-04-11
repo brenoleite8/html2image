@@ -35,6 +35,7 @@ class BLHtml2Image extends TPage
                 $name = reset($fileName);
                 $name = self::formata_texto($name);
                 $path = $tempDir;
+                /*
                 $script = "
                 __adianti_block_ui();
                 var element = document.getElementById('$id');
@@ -68,6 +69,48 @@ class BLHtml2Image extends TPage
                 }
                 __adianti_unblock_ui();
                 ";
+                */
+                $script = "__adianti_block_ui();
+                            var element = document.getElementById('$id');
+                            
+                            if (element) {
+                                html2canvas(element).then(canvas => {
+                                    var imgData = canvas.toDataURL('image/png');
+                            
+                                    // Parâmetros a enviar
+                                    var params = {
+                                        imgData: imgData,
+                                        nomeArquivo: '$name'
+                                    };
+                            
+                                    __adianti_ajax_exec({
+                                        class: 'BLHtml2Image',
+                                        method: 'saveImage',
+                                        static: '1',
+                                        parameters: params,
+                                        complete: function() {
+                                            console.log('Imagem salva com sucesso');
+                                            var filename = '$path/$name.png';
+                                            var downloadURL = '/download.php?file=' + filename + '&basename=';
+                                            var link = document.createElement('a');
+                                            link.href = downloadURL;
+                                            link.download = filename;
+                                            link.click();
+                                            __adianti_unblock_ui();
+                                        },
+                                        error: function(request, status, error) {
+                                            __adianti_failure_request(request, status, error);
+                                            __adianti_unblock_ui();
+                                        }
+                                    });
+                                }).catch(error => {
+                                    console.error('Erro ao capturar elemento:', error);
+                                    __adianti_unblock_ui();
+                                });
+                            } else {
+                                console.error('Elemento não encontrado ou inválido.');
+                                __adianti_unblock_ui();
+                            }";
 
                 TScript::create($script);
             }
