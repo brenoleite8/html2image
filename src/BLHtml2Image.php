@@ -82,8 +82,7 @@ class BLHtml2Image extends TPage
                                     };
                             
                                     __adianti_ajax_exec({
-                                        class: 'BLHtml2Image',
-                                        method: 'saveImage',
+                                        action: 'BLHtml2Image::saveImage',
                                         static: '1',
                                         parameters: params,
                                         complete: function() {
