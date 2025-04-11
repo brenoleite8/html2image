@@ -119,7 +119,7 @@ class BLHtml2Image extends TPage
     }
 
     // FORMATA O TEXTO PARA QUE NÃO DÊ ERRO NA HORA DE SALVAR O ARQUIVO
-    protected static function formata_texto ($text)
+    public static function formata_texto ($text)
     {
           // Converte acentos e caracteres especiais
           $text = iconv('UTF-8', 'ASCII//TRANSLIT', $text);
