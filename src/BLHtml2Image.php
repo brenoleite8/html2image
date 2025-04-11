@@ -79,7 +79,7 @@ class BLHtml2Image extends TPage
         
     }
 
-    private static function saveImage($param)
+    public static function saveImage($param)
     {
         if(isset($param['isLote'])) {
             $images  = $param['images'];
