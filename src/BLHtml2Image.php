@@ -10,7 +10,8 @@ class BLHtml2Image extends TPage
     public function __construct()
     {       
         parent::__construct();
-        parent::include_js('vendor/brenoleite8/html2image/src/js/html2canvas.min.js');
+        TScript::create("includeJS('vendor/brenoleite8/html2image/src/js/html2canvas.min.js');");
+
         //TScript::create('vendor/brenoleite8/html2image/src/js/html2canvas.min.js');  
     }
     public static function download(array $ids, $fileName = NULL, $zipName = NULL, $tempDir = 'tmp/')
