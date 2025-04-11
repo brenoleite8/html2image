@@ -75,16 +75,14 @@ class BLHtml2Image extends TPage
                             
                             if (element) {
                                 html2canvas(element).then(canvas => {
-                                    var imgData = canvas.toDataURL('image/png');
-                                    var params = {
-                                        imgData: imgData,
-                                        nomeArquivo: '$name'
-                                    };
-                            
+                                    var imgData = canvas.toDataURL('image/png');                           
                                     __adianti_ajax_exec({
                                         action: 'BLHtml2Image::saveImage',
                                         static: '1',
-                                        parameters: params,
+                                        parameters: {
+                                            imgData: imgData,
+                                            nomeArquivo: '$name'
+                                        },
                                         complete: function() {
                                             console.log('Imagem salva com sucesso');
                                             var filename = '$path/$name.png';
