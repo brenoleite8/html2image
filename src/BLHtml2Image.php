@@ -12,7 +12,7 @@ class BLHtml2Image extends TPage
         parent::__construct();
         TScript::create('vendor/brenoleite8/html2image/src/js/html2canvas.min.js');  
     }
-    public static function download($ids, $fileName = NULL, $zipName = NULL, $tempDir = 'tmp/')
+    public static function download(array $ids, $fileName = NULL, $zipName = NULL, $tempDir = 'tmp/')
     {
         try 
         {       
