@@ -76,8 +76,6 @@ class BLHtml2Image extends TPage
                             if (element) {
                                 html2canvas(element).then(canvas => {
                                     var imgData = canvas.toDataURL('image/png');
-                            
-                                    // Parâmetros a enviar
                                     var params = {
                                         imgData: imgData,
                                         nomeArquivo: '$name'
